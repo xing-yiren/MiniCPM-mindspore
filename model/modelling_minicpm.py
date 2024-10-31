@@ -560,7 +560,7 @@ class MiniCPMDecoderLayer(nn.Cell):
 # Below is PyTorch implementation to migrate
 # TODO: weight initiation
 
-class MiniCPMPreTrainedModel(nn.Cell):
+class MiniCPM3PreTrainedModel(nn.Cell):
     def __init__(self, config: MiniCPMConfig):
         super().__init__(config)
         self.std = config.initializer_range
@@ -574,7 +574,7 @@ class MiniCPMPreTrainedModel(nn.Cell):
             if cell.bias is not None: 
                 cell.bias.set_data(initializer(Zero(), cell.bias.shape, cell.bias.dtype))
 
-class MiniCPMModel(MiniCPMPreTrainedModel):
+class MiniCPM3Model(MiniCPM3PreTrainedModel):
     """
     Transformer decoder consisting of *config.num_hidden_layers* layers. Each layer is a [`MiniCPMDecoderLayer`]
 

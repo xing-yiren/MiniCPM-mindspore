@@ -6,8 +6,7 @@ import mindspore
 from mindspore import nn, ops
 
 from model.configuration_minicpm import MiniCPMConfig as MSConfig
-from model_torch.configuration_minicpm_torch import MiniCPMConfig as TorchConfig
-
+from model_torch.configuration_minicpm3 import MiniCPM3Config as TorchConfig
   
 class MiniCPMTest(unittest.TestCase): 
     def get_input(self, batch_size, seq_len, hidden_size):
@@ -19,7 +18,7 @@ class MiniCPMTest(unittest.TestCase):
 
     def test_rms_norm(self):
         from model.modelling_minicpm import MiniCPMRMSNorm as MSRMSNorm
-        from model_torch.modelling_minicpm_torch import MiniCPMRMSNorm as TorchRMSNorm
+        from model_torch.modelling_minicpm2_torch import MiniCPMRMSNorm as TorchRMSNorm
         ms_input, torch_input = self.get_input(1, 10, 4096)
         ms_rms_norm = MSRMSNorm()
         torch_rms_norm = TorchRMSNorm()
